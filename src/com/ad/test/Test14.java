@@ -11,7 +11,7 @@ public class Test14 extends CustomTest{
 	
 }
 
-class CustomTest{
+abstract class CustomTest{
 	private String name;
 
 	public String getTestName() {

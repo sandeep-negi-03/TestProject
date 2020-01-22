@@ -9,7 +9,7 @@ public class Test5 {
 		int second = 200;
 		swapValues(first,second);
 		Test5 test5 = new Test5();
-		test5.swapValues2(test5.a, test5.b);
+		swapValues2(test5.a, test5.b);
 		System.out.println("a" + test5.a);
 		System.out.println("b" + test5.b);
 		System.out.println(first);

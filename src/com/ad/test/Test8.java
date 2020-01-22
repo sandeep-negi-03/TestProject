@@ -21,7 +21,8 @@ public class Test8 {
 		anotherBoxList.push(a);
 		anotherBoxList.push(b);
 		anotherBoxList.push(c);
-
+		
+		//System.out.println(listBoxes.poll().getWeight() + " and " + (anotherBoxList.pop().getWeight()));
 		System.out.println(listBoxes.poll().equals(anotherBoxList.pop())); // return false
 		// as linked list will return 1st element and stack will pop last element
 	}
