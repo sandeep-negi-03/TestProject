@@ -1,0 +1,182 @@
+{
+    "desc": "VMOMTestNGSuite",
+    "suites": [
+        {
+            "suite": "Install Internet Service for existing subscriber having CATV + DTV [ Precondition - ADD CATV + DTV]",
+            "steps": [
+            	{
+                    "action": "submit",
+                    "isStubbed": "false",
+                    "taskDesc": "Submit order",
+                    "reqLoc": "./config/Requests/Precondition_S-SOM_Activate_Internet_07.xml",
+                    "incrementParms": "External_Key,Service_Group_ID,Order_External_Key,Entity_Key,External_Key_Order_Item,Entitlement_Id,SC_SerialNumber,STB_SerialNumber"
+                },
+                 {
+                    "action": "validateAutoTask",
+                    "isStubbed": "false",
+                    "taskDesc": "DTV  Provisioning",
+                    "compareTag": "true",
+                    "compareValue": "false",
+                    "comparisonType": "XML",
+                    "expectedReqLoc": "./config/Results/expectedResult/DTV  Provisioning/Send_DTV_for_Provisioning_Request.xml",
+                    "expectedResLoc": "./config/Results/expectedResult/DTV  Provisioning/Send_DTV_for_Provisioning_Response.xml",
+                    "verificationSequence": {
+                    	"workFlowVerification": {
+                    		"expectedFileName":"SMP.xml",
+    						"outputFileName": "./config/Results/expectedResult/DTV  Provisioning/SMP.xml",
+    						"isImpacted": "no",
+    						"verificationStatus": "enable",
+    						"stepNo": "4",
+   							"verifyProcessParmValues": "yes",
+    						"verifyProcessDependency": "yes",
+    						"ignorableProcesses": {
+      								"process": [{
+          "name": "",
+          "ignoreCompleteProcess": ""
+        }]
+    							},
+    							"parmValueVerification": {
+      								"allProcessesAgainstExpected": "no",
+      								"skipFromParmValueVerifcation": {
+        								"enableConfiguration": "no",
+        								"processToSkip": [
+          											{
+            											"name": "eventis_add_device",
+            											"skipAllParms": "yes",
+            											"parmToSkip": [{ "name": "device_id" }]
+          											},
+          											{
+            											"name": "eventis_add_update_sub",
+            											"skipAllParms": "yes"
+          											}
+        											]
+      									},
+      								"customParmValueVerification": {
+       								 "process": [
+          											{
+            							"name": "eventis_assoc_device_with_sub",
+            							"allParmsAgainstExpected": "no",
+            							"parm": [
+              								{
+                							"name": "device_id",
+                							"verifyWithExpected": "no",
+                							"startsWith": "",
+                							"endsWith": "",
+                							"containsString": "",
+                							"stringLength": ""
+              								},
+              								{
+                							"name": "protocol",
+                							"verifyWithExpected": "yes",
+                							"startsWith": "",
+                							"endsWith": "",
+                							"containsString": "",
+                							"stringLength": ""
+              								}
+            								]
+          								}
+        								]
+      									}
+    									}
+  								}
+  								}
+                 }
+                ]
+        },
+		{
+            "suite": "Install Internet Service for existing subscriber having CATV + DTV [ Add Internet with features all 'Y' on CATV subscriber]",
+            "steps": [
+            	{
+                    "action": "submit",
+                    "isStubbed": "false",
+                    "taskDesc": "Submit order",
+                    "reqLoc": "./config/Requests/S-SOM_Activate_Internet_07.xml",
+                    "incrementParms": "Order_External_Key,Entity_Key,External_Key_Order_Item,Entitlement_Id,SC_SerialNumber,STB_SerialNumber"
+                },
+                 {
+                    "action": "validateAutoTask",
+                    "isStubbed": "false",
+                    "taskDesc": "Internet and Voice Provisioning",
+                    "compareTag": "true",
+                    "compareValue": "false",
+                    "comparisonType": "XML",
+                    "expectedReqLoc": "./config/Results/expectedResult/Internet and Voice Provisioning/Send_Internet_for_provisioning_Request.xml",
+                    "expectedResLoc": "./config/Results/expectedResult/Internet and Voice Provisioning/Send_Internet_for_provisioning_Response.xml",
+                    "verificationSequence": {
+                    	"workFlowVerification": {
+                    		"expectedFileName":"SMP_Proc.xml",
+    						"outputFileName": "./config/Results/expectedResult/Internet and Voice Provisioning/SMP_Proc.xml",
+    						"isImpacted": "no",
+    						"verificationStatus": "enable",
+    						"stepNo": "4",
+   							"verifyProcessParmValues": "yes",
+    						"verifyProcessDependency": "yes",
+    						"ignorableProcesses": {
+      								"process": [{
+          "name": "",
+          "ignoreCompleteProcess": ""
+        }]
+    							},
+    							"parmValueVerification": {
+      								"allProcessesAgainstExpected": "no",
+      								"skipFromParmValueVerifcation": {
+        								"enableConfiguration": "no",
+        								"processToSkip": [
+          											{
+            											"name": "eventis_add_device",
+            											"skipAllParms": "yes",
+            											"parmToSkip": [{ "name": "device_id" }]
+          											},
+          											{
+            											"name": "eventis_add_update_sub",
+            											"skipAllParms": "yes"
+          											}
+        											]
+      									},
+      								"customParmValueVerification": {
+       								 "process": [{
+            							"name": "tmplt_bac_add_cm",
+            							"allParmsAgainstExpected": "no",
+            							"parm": [
+              								{
+                							"name": "bac_box_nm",
+                							"verifyWithExpected": "yes",
+                							"startsWith": "",
+                							"endsWith": "",
+                							"containsString": "",
+                							"stringLength": ""
+              								},
+              								{
+                							"name": "modem_dhcp_criteria",
+                							"verifyWithExpected": "yes",
+                							"startsWith": "",
+                							"endsWith": "",
+                							"containsString": "",
+                							"stringLength": ""
+              								}
+            								]
+          								},
+          								{
+            							"name": "tmplt_bac_query_docsis_modem_by_mac",
+            							"allParmsAgainstExpected": "no",
+            							"parm": [
+              								{
+                							"name": "bac_box_nm",
+                							"verifyWithExpected": "yes",
+                							"startsWith": "",
+                							"endsWith": "",
+                							"containsString": "",
+                							"stringLength": ""
+              								}
+            								]
+          								}
+        								]
+      									}
+    									}
+  								}
+  								}
+                 }
+                ]
+        }
+        ]
+        }
