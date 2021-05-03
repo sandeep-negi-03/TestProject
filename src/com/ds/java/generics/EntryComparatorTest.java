@@ -1,8 +1,12 @@
 package com.ds.java.generics;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.function.Function;
 import static java.util.stream.Collectors.toMap;
 
@@ -23,6 +27,13 @@ public class EntryComparatorTest {
 		System.out.println("Sorted by key:");
 		employeeMap.entrySet().stream()
 		    .sorted(Map.Entry.comparingByKey())
+		    .forEach(entry -> {
+		        System.out.println(entry.getKey() + ": " + entry.getValue());
+		    });
+		
+		System.out.println("Sorted by Value:");
+		employeeMap.entrySet().stream()
+		    .sorted(Map.Entry.comparingByValue((i1,i2)->i1.toString().compareTo(i2.toString())))
 		    .forEach(entry -> {
 		        System.out.println(entry.getKey() + ": " + entry.getValue());
 		    });

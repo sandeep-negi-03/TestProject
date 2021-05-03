@@ -1,7 +1,11 @@
 package com.ds.java.generics;
 
+import java.math.BigInteger;
+
 public class TestGenerics {
 
+	static BigInteger a ;
+	
 	// In the below 2 methods, only Data Type which extends Number are allowed.
 	public static <T extends Number> double addStaticMethod(T a, T b) {
 		return a.doubleValue() + b.doubleValue();
@@ -22,6 +26,8 @@ public class TestGenerics {
 		TestGenerics m = new TestGenerics();
 		// Instance method invocation with Type Argument.
 		System.out.println(m.<Double> addInstanceMethod(3.2, 4.5));
+		
+		System.out.println(a);
 	}
 
 }

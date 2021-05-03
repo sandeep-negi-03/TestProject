@@ -30,31 +30,34 @@ interface InterB{
 public class TestInterface implements InterA, InterB{
 	
 	public static void main(String[] args) {
-		InterA i = (a,b)->System.out.println("Sum is : " + (a+b) );
+		InterA inta = (a,b)->System.out.println("Sum is : " + (a+b) );
 		
-		i.add(10, 20);
-		i.d1();
+		inta.add(10, 20);
+		inta.d1();
 		InterA.s1();
 		
-		InterB j = (a,b)->System.out.println("Sum is : " + (a+b) );
-		j.add(100, 200);
-		j.d1();
+		InterB intb = (a,b)->System.out.println("Sum is : " + (a+b) );
+		intb.add(100, 200);
+		intb.d1();
+		
 		
 		InterB objb = new TestInterface();
 		objb.d1();
+		InterB.s1();
 
 		InterA obja = new TestInterface();
 		obja.d1();
 	}
-	
-	@Override
-	public void add(int a, int b) {
-		
-	}
 
 	@Override
-	public void d1() {
-		// TODO Auto-generated method stub
-		InterA.super.d1();
+	public void add(int a, int b) {
+		int sum = a + b;
+		System.out.println(sum);
 	}
+	
+	@Override
+	public void d1() {
+		System.out.println("TestInterface Class d1 implementation");
+	}
+	
 }

@@ -17,7 +17,7 @@ public class CollectionToMap {
 		System.out.println(list);
 		
 		Map<String, String> map = list.stream().collect
-				(Collectors.toMap(Student::getDepartment, Student::getName));
+				(Collectors.toMap(Student::getName, Student::getDepartment));
 		System.out.println(map);
 	}
 	

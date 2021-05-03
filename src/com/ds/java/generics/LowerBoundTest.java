@@ -19,8 +19,8 @@ public class LowerBoundTest {
 		ArrayList<Number> numberList = new ArrayList<>();
 		ArrayList<Object> objectList = new ArrayList<>();
 
-		numsUpTo(5, integerList);
-		numsUpTo(5, numberList);
+		numsUpTo(9, integerList);
+		numsUpTo(8, numberList);
 		numsUpTo(5, objectList);
 	}
 }
